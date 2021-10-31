@@ -38,6 +38,6 @@ ticket=$(curl --silent --location --request POST ${apiURL} \
 
 # echo $ticket | json_pp
 # echo $ticket | python -mjson.tool
-echo "ticket key is:"
-echo $ticket
+UNIQUEID=`echo $ticket | sed 's/.*"id":"\([^"]*\)\(.*\)/\1/'`
+echo $UNIQUEID
 #echo $ticket | python -mjson.tool | grep key | head -n1
