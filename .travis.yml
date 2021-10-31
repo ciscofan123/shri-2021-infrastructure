@@ -2,11 +2,11 @@ language: node_js
 node_js:
   - v12
 before_script:
-  - echo "123"
+  - echo "Before script"
 branches:
   only:
     - master
 script:
-  - echo "234"
-  - bash ./script/bash.sh
+  - node ./script/release.js
+  - bash ./script/runtests.sh
 
