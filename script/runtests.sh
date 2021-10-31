@@ -42,10 +42,11 @@ TICKETID=`echo $ticket | sed 's/\([^\,]*\)"id":"\([^"]*\)\(.*\)/\1\n\2/' | tail 
 echo "TICKET ID:${TICKETID}"
 #echo $ticket | python -mjson.tool | grep key | head -n1
 
-curl --silent --location --request POST /v2/issues/$TICKETID/comments \
+RESULT=$(curl --silent --location --request POST /v2/issues/${TICKETID}/comments \
     --header "${authHeader}" \
     --header "${orgidHeader}" \
     --header "${contentHeader}" \
     --data-raw '{
                    "text": "Тесты прошли успешно"
                 }'
+)
