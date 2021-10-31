@@ -38,7 +38,7 @@ ticket=$(curl --silent --location --request POST ${apiURL} \
 
 # echo $ticket | json_pp
 # echo $ticket | python -mjson.tool
-TICKETID=`echo $ticket | sed 's/.*"id":"\([^"]*\)\(.*\)/\1/'`
+TICKETID=`echo $ticket | sed 's/\([^\,]*\)"id":"\([^"]*\)\(.*\)/\1\n\2/' | tail -1
 echo "TICKET ID:${TICKETID}"
 #echo $ticket | python -mjson.tool | grep key | head -n1
 
