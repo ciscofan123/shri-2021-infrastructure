@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - v16
+before_script:
+  - echo "123"
+branches:
+  only:
+    - master
+script:
+  - bash /var/www/shri-2021-infrastrucutre/script/release.sh
+  - bash /var/www/shri-2021-infrastructure/script/runtests.sh
+
