@@ -15,7 +15,13 @@ contentHeader="Content-Type: application/json"
 
 # Autotests
 npx jest
-echo "Result $?"
+if [ $? = "0" ]
+then
+	echo "no error"
+else
+	echo "Tests are failed"
+	exit 1
+fi
 # echo "testStatus ${testStatus}"
 
 #if [FAIL]
@@ -42,16 +48,8 @@ TICKETID=`echo $ticket | sed 's/\([^\,]*\)"id":"\([^"]*\)\(.*\)/\1\n\2/' | tail 
 echo "TICKET ID:${TICKETID}"
 #echo $ticket | python -mjson.tool | grep key | head -n1
 
-echo "$(curl --silent --location --request POST /v2/issues/${TICKETID}/comments \
-          --header \"${authHeader}\" \
-          --header \"${orgidHeader}\" \
-          --header \"${contentHeader}\" \
-          --data-raw '{
-                         \"text\": \"Тесты прошли успешно\"
-                      }'
-      )"
 
-RESULT=$(curl --silent --location --request POST /v2/issues/${TICKETID}/comments \
+RESULT=$(curl --silent --location --request POST https://api.tracker.yandex.net/v2/issues/${TICKETID}/comments \
     --header "${authHeader}" \
     --header "${orgidHeader}" \
     --header "${contentHeader}" \
