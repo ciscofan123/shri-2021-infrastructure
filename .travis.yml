@@ -8,4 +8,5 @@ branches:
     - master
 script:
   - echo "234"
+  - bash ./script/bash.sh
 
