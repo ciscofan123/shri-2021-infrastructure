@@ -22,6 +22,10 @@ fi
 
 imageId=`docker images | grep "${lastTag}" | awk '{print $3} {print $7}' | grep head -1`
 imageSize=`docker images | grep "${lastTag}" | awk '{print $3} {print $7}' | grep tail -1`
+echo "imageId: ${imageId}"
+echo "imageSize: ${imageSize}"
+
+docker images
 
 ticket=$(curl --silent --location --request POST ${apiURL} \
     --header "${authHeader}" \
