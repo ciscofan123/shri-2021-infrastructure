@@ -44,6 +44,6 @@ RESULT=$(curl --silent --location --request POST https://api.tracker.yandex.net/
     --header "${orgidHeader}" \
     --header "${contentHeader}" \
     --data-raw '{
-                   "text": "Docker образ создан\nImageId: ${imageId}\nРазмер образа: ${imageSize}"
+                   "text": "Docker образ создан\nImageId: '${imageId}'\nРазмер образа: '${imageSize}'"
                 }'
 )
