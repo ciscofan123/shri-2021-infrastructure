@@ -5,7 +5,7 @@ lastTag=$(git tag | sort -r | head -n1)
 echo $lastTag
 id="ciscofan123/shri-2021-infrastructure/${lastTag}"
 
-authHeader="Authorization: OAuth AQAAAABX6a9zAAd45o57jeQ8i07jkLtXtUKNSKQ"
+authHeader="Authorization: OAuth ${yandexToken}"
 orgidHeader="X-Org-Id: 6461097"
 contentHeader="Content-Type: application/json"
 
