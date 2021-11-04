@@ -20,10 +20,9 @@ else
 	exit 1
 fi
 
-imageId=`docker images | grep "${lastTag}" | awk '{print $3} {print $7}' | grep head -1`
-imageSize=`docker images | grep "${lastTag}" | awk '{print $3} {print $7}' | grep tail -1`
+imageId=`docker images | grep "${lastTag}" | awk '{print $3}'`
+echo "lastTag: ${lastTag}"
 echo "imageId: ${imageId}"
-echo "imageSize: ${imageSize}"
 
 docker images
 
@@ -48,6 +47,6 @@ RESULT=$(curl --silent --location --request POST https://api.tracker.yandex.net/
     --header "${orgidHeader}" \
     --header "${contentHeader}" \
     --data-raw '{
-                   "text": "Docker образ создан\nImageId: '${imageId}'\nРазмер образа: '${imageSize}'"
+                   "text": "Docker образ создан\nImageId: '${imageId}'"
                 }'
 )
