@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const axios = require('axios');
 const {TRACKER_API, TRACKER_ID, GITHUB_API, REPOSITORY_URL} = require('./../config.js');
-export const OAUTH = process.env['yandexToken'];
+const OAUTH = process.env['yandexToken'];
 
 const createReleaseTicket = async (uniqueId, summary, description) => {
 	await axios({

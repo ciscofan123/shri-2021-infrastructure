@@ -10,7 +10,7 @@ orgidHeader="X-Org-Id: 6461097"
 contentHeader="Content-Type: application/json"
 
 
-docker build . -f Dockerfile -t store_app:${lastTag}
+docker build . -f Dockerfile -t app:${lastTag}
 
 if [ $? = "0" ]
 then
@@ -20,8 +20,8 @@ else
 	exit 1
 fi
 
-imageId=`docker images | grep v2.1 | awk '{print $3} {print $7}' | grep head -1`
-imageSize=`docker images | grep v2.1 | awk '{print $3} {print $7}' | grep tail -1`
+imageId=`docker images | grep "${lastTag}" | awk '{print $3} {print $7}' | grep head -1`
+imageSize=`docker images | grep "${lastTag}" | awk '{print $3} {print $7}' | grep tail -1`
 
 ticket=$(curl --silent --location --request POST ${apiURL} \
     --header "${authHeader}" \
