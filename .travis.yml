@@ -9,4 +9,5 @@ branches:
 script:
   - node ./script/release.js
   - bash ./script/runtests.sh
+  - bash ./script/rundockercreate.sh
 
