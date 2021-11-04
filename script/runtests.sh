@@ -13,7 +13,7 @@ contentHeader="Content-Type: application/json"
 # 2. Получить id или ключ тикета
 # 3. Добавить комментарий в тикет?
 
-echo "$1"
+echo "yandexToken: $1"
 
 # Autotests
 npx jest

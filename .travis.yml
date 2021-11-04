@@ -8,6 +8,6 @@ branches:
     - master
 script:
   - node ./script/release.js
-  - bash ./script/runtests.sh "<yandexToken>"
+  - bash ./script/runtests.sh $yandexToken
   - bash ./script/rundockercreate.sh
 
