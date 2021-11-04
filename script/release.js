@@ -113,8 +113,6 @@ const getTagsDiff = async (prevTag, lastTag) => {
 		author: commit.commit.author,
 		message: commit.commit.message,
 		url: commit.html_url,
-		//tagCreatedAt: commit.createdAt,
-		//tagAuthor: commit.createdBy.display
 	}));
 }
 
