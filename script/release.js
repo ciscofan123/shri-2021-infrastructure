@@ -70,7 +70,7 @@ const getTagMeta = async (url) => {
 		method: 'GET',
 		url: url
 	})
-		.then((response) => { result = response.data.tagger; })
+		.then((response) => { result = response.data.author || response.data.tagger; })
 		.catch(console.error);
 	return result;
 }
